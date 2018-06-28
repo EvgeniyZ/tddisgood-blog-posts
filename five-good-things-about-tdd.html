@@ -1,0 +1,31 @@
+I assume that you've heard about TDD (Test-driven development). If you're using this discipline every day - it's really cool, you're great, keep it up! If you're unfamiliar with TDD here's three simple yet powerful stages:
+<ol>
+ 	<li><strong>Red</strong>: Write a bit of test code to make it fail, no more - compilation error is a fail.</li>
+ 	<li><strong>Green</strong>: Write just enough production code to make a test pass, none of top on that.</li>
+ 	<li><strong>Refactor</strong>: Remove any duplication between test and production method, improve code quality, etc.
+<strong>Repeat.</strong></li>
+</ol>
+That cycle can dramatically increase your productivity, make you feel more comfortable and help you to deliver features faster.
+Isn't interesting yet and thinking about why you should get started with TDD? Or you've tried TDD, found it useless and got bored? Well, here's five benefits that I suppose can convince you.
+<h2>Reduce complexity</h2>
+TDD tends to reduce complexity. You should write only code that works, nothing on top of that.
+Write a test that fails. Write a minimum amount of code that makes the test pass. Remove all duplication. If you really
+follow this cycle it'll forbid you to write any redundant code. And it's great - less code you have, fewer bugs you have,
+fewer QA time spend on verification and maintenance problems and things like that.
+<h2>Less debugging time</h2>
+When you develop without tests how are you verifying that's the code is working as expected? You just run and see, don't you? And if something goes wrong and you don't know why, the only tool that can help you is a debugging. My point is - debugging is a tough thing. It's hard to do it well. Are you sure that you're really good at it? Do you really think that debugging is a desirable skill for your customer or your team? Tests-first can check your code faster and easier rather than spend hours for debugging.
+<h2>Baby-steps are useful and give more control</h2>
+TDD encourages baby-steps, why is it helpful? If you face a really hard task that decomposed but still complicated, baby-steps will help you start doing something right now, bit by bit. The best thing you can do is to commit every baby-step in VCS. I mean, you've created a test that fails - it's great and it's time to commit. You've written enough code to make it pass, you're amazing and it's time to commit. You've done a refactoring and everything still passes - it's time to commit.
+<h2>Easy to refactor</h2>
+When your code covered by tests it's really easy to refactor, moving things around or even replace methods implementations. Eventually, when you've done coding a routine, your brain can pop with new ideas, more efficient algorithms or ways how to do the same thing and it's worth to check it. And you can do it just in seconds, simply run all tests and see results.
+<h2>Cover more feature domain</h2>
+Admit it, it's boring to write tests after implementation. Why should you do that? Your code works, so why should you spend time on such stupid thing? Even when you've written tests-after... when all tests-after passes it means nothing for you, you've already debugged and checked it manually, don't you? One bad thing about it is that tests-after narrow the feature implementation, it's not a desirable thing through. TDD approach assumes that when you're working on next feature you've prepared a to-do list with test cases. And all of those should be treated as tests. And all stuff that can pop into your head while you code it also. Tests should imply the implementation, no vice-versa.
+<h3>Recap</h3>
+<ul>
+ 	<li>Write only code that works, no more</li>
+ 	<li>Less debugging time, more productivity</li>
+ 	<li>Baby-steps help to be focused. Commits are short and consistent</li>
+ 	<li>Refactor is an easy-to-use tool, not a hard thing</li>
+ 	<li>TDD forces you to check all cases - regular and exceptional</li>
+</ul>
+I hope I convinced you enough to get started with TDD. In my next posts, I'll show many examples of how to achieve these benefits and even more. Cheers.
