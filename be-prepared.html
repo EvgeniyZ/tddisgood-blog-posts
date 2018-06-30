@@ -1,0 +1,47 @@
+<a href="five-good-things-about-tdd">In the previous post</a>, I wrote about five good things. Developers should be prepared to use TDD.
+The first step is to prepare your workstation, tools, and environment.
+At this moment I am developing into C# mostly, so I'm going to show you mine preparations.
+<h2>Configure IDE</h2>
+When tests run slowly nobody will use them. Assume for now that we have fast tests suite. What else can slow down development?
+How tests are executing.
+Average word per minute for a programmer is around 70, define word length equals 5 and math gives 70*5/60/1000 = 0.0058 char/ms. It's 1 char per 200 ms. I'm using CTRL+' for executing tests, so, two keys cost 400 ms.
+There're in average 2 to 3 seconds for doing the same thing in IDE with a mouse, you know, move a cursor, one or two clicks.
+Calling tests 30 times per working day:
+Hotkey - 400*30=12000 ms=12 s
+Mouse - 3000*30=90000 ms=90 s
+<strong>Run tests by a hotkey. Use same hotkey in any IDE.</strong>
+In JetBrains Rider open settings and assign a hotkey for run tests in the current scope and run current session.
+<img class="alignnone wp-image-104 size-large" src="http://tddisgood.com/wp-content/uploads/2018/06/Capture-1024x707.png" alt="JetBrains Rider key assignment image" width="700" height="483" />
+<i>Run Unit Tests</i> run tests in the current scope. The scope depends on a cursor position, so if the cursor in a test method, it will run only that method. If in a test class but not in the method then all tests within the class will be called.
+<i>Run Current session</i> run tests from the current session. All solution tests are in current session by default. Rider allows creating custom sessions. One good thing about sessions that a programmer can have one session for fast Isolated Unit tests and another session for Integration tests which can be slow.
+
+In VSCode press CTRL+SHIFT+P -&gt; Preferences: Open Keyboard Shortcuts File.
+<img class="alignnone wp-image-109 size-large" src="http://tddisgood.com/wp-content/uploads/2018/06/VSCode-Open-keyboard-1024x228.png" alt="VSCode open keyboard shortcuts file" width="700" height="156" />
+In keybindings.json you'd have a JSON array. Add
+<script src="https://gist.github.com/EvgeniyZ/5c9914b3edd903d9eb449d903d47484d.js"></script>
+It means to call a task named <i>test</i> when pressing CTRL+'. Also, need to create a task with test name in a project.
+Below an example for .NET Core project.
+<a href="https://www.microsoft.com/net/learn/get-started">Install .NET Core</a>. Make sure that CLI dotnet commands are working fine.
+Make a sample directory and move into.
+<script src="https://gist.github.com/EvgeniyZ/eb22e236c78a703892977c57736a484f.js"></script>
+Hit CTRL+' in VSCode and see that terminal is opened and 1 test passed from UnitTest1.cs file.
+tasks.json should be like that.
+<script src="https://gist.github.com/EvgeniyZ/b1f812b78811df89b14cdda5c7b21351.js"></script>
+The thing is, it doesn't matter if you're programming in IDE, vim or any text editor. A programmer should run test suite fast.
+<h2>Use notepad</h2>
+It's common for a developer to forget to cover corner sides when implementing features.<q> Human's short-term memory can handle no more than four information chunks.</q> <cite>B. Oakley, A Mind for Numbers</cite>.
+Better to persist chunks somewhere. Use a piece of paper or an app for it.
+<strong>Think ahead and write ideas to notepad.</strong>
+Write all actions related to a task, focus on it for 5-10 minutes. After defining actions, choose understandable one and start working on test cases. Write them to notepad for 5-10 minutes. Choose simplest test case - it's a <i>kernel</i>. Kernel drives other test cases. Split test cases into two sets and extract new action if there's more than one kernel.
+Write a test for the kernel, make him pass and cross out the kernel from notepad. Do it for a next easiest case. Notepad will show that some cases aren't covered.
+One more good thing, the notepad helps get back on track and shows unfinished work. So, a programmer can walk away from development for a lunch, go stretch, whatever, and return to development. More details in <a href="https://arxiv.org/pdf/1707.00794.pdf">Task Interruptions in Requirements Engineering</a>.
+Interruptions are common in real life, so, when a programmer is losing focus he is spending less time on bringing back the task context when looking at the notepad. However, avoid interruptions because switching the context back and forth <q>comes with a price: experiencing more stress, higher frustration, time pressure, and effort.</q> <cite>The Cost of Interrupted Work: More Speed and Stress</cite>
+<strong>Avoid interruptions.</strong>
+<h3>Recap</h3>
+<ul>
+ 	<li>Assign test suite call to a hotkey</li>
+ 	<li>Think ahead, use notepad</li>
+</ul>
+Next week I'm going to dive into examples, see you.
+<h3>More?</h3>
+J. B. Rainsberger <a href="https://online-training.jbrains.ca/courses/wbitdd-01/lectures/133270"> Reintroduction to TDD</a>
